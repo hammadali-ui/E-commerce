@@ -1,0 +1,13 @@
+/* *{
+    background-color: blue;
+    
+} */
+
+*{
+    box-sizing:border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  background-color: #fdfdfd;
+}
