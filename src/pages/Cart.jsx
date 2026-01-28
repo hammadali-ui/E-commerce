@@ -115,7 +115,7 @@ const handleAddToCart = (product) => {
             item.image
               ? item.image.startsWith("http")
                 ? item.image
-                : `http://localhost:8000/${item.image.replace(/^\/+/, "")}`
+                : `import.meta.env.VITE_API_URL/${item.image.replace(/^\/+/, "")}`
               : "/placeholder.png"
           }
           alt={item.name}
@@ -127,7 +127,7 @@ const handleAddToCart = (product) => {
     product.image
       ? product.image.startsWith("http")
         ? product.image
-        : `http://localhost:8000/${product.image.replace(/^\/+/, "")}`
+        : `import.meta.env.VITE_API_URL/${product.image.replace(/^\/+/, "")}`
       : "/placeholder.png"
   }
   alt={product.name}

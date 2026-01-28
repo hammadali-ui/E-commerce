@@ -8,7 +8,7 @@ const ProfilePage = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:8000/profile", {
+      const res = await fetch("import.meta.env.VITE_API_URL/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,

@@ -98,7 +98,7 @@ const cartQty = cartItem?.quantity || 0;
     product.image
       ? product.image.startsWith("http")
         ? product.image
-        : `http://localhost:8000/${product.image.replace(/^\/+/, "")}`
+        : `import.meta.env.VITE_API_URL/${product.image.replace(/^\/+/, "")}`
       : "/placeholder.png"
   }
   alt={product.name}
