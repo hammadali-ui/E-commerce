@@ -4,6 +4,9 @@ import { Link,useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { toast } from "sonner";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 export default function Cart() {
   const { cart, setCart } = useCart();
 
@@ -115,7 +118,7 @@ const handleAddToCart = (product) => {
             item.image
               ? item.image.startsWith("http")
                 ? item.image
-                : `import.meta.env.VITE_API_URL/${item.image.replace(/^\/+/, "")}`
+                : `${BASE_URL}/${item.image.replace(/^\/+/, "")}`
               : "/placeholder.png"
           }
           alt={item.name}
