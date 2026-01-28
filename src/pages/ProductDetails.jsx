@@ -4,7 +4,7 @@ import { addToCart, getCart, clearCart } from "../utils/cart";
 import { toast } from "sonner";
 import { useCart } from "../context/CartContext";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export default function ProductDetails() {
   const { id } = useParams();

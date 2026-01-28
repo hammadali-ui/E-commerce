@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard";
 import { useSearchParams } from "react-router-dom";
 import Hero from "../components/Hero";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -75,9 +75,8 @@ const filteredProducts = products.filter((product) => {
   }, {});
 
   // Loading or error state
-  if (loading) return <p className="text-center py-20">Loading products...</p>;
-  if (error) return <p className="text-center py-20 text-red-500">{error}</p>;
-
+  if (loading) return <p className="text-center py-20">Loading products...</p>
+  if (error) return <p className="text-center py-20 text-red-500">{error}</p>
   return (
 
 <div className="max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8 py-14" style={{backgroundColor:"#fdfdfd"}}>
