@@ -3,6 +3,8 @@ import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 const ForgetPage = () => {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
@@ -31,7 +33,7 @@ const ForgetPage = () => {
     if (!validate()) return
 
     try {
-      const res = await fetch("import.meta.env.VITE_API_URL/forgot-password", {
+      const res = await fetch(`${BASE_URL}/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })

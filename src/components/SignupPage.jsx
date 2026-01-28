@@ -6,6 +6,9 @@ import { toast } from "sonner";
 import { Eye , EyeOff } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -42,7 +45,7 @@ const SignupPage = () => {
     // navigate("/login");
 
     try {
-      const res = await fetch("import.meta.env.VITE_API_URL/signup", {
+      const res = await fetch(`${BASE_URL}/signup`,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),

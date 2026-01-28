@@ -4,6 +4,9 @@ import { toast } from 'sonner'
 import { Eye,EyeOff,ArrowLeft } from 'lucide-react'
 
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 const LoginPage = () => {
   // const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
@@ -41,7 +44,7 @@ const LoginPage = () => {
   
 
   try {
-    const res = await fetch("import.meta.env.VITE_API_URL/login", {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

@@ -3,6 +3,9 @@ import { Link,useNavigate} from 'react-router-dom'
 import { toast } from 'sonner'
 import { Eye,EyeOff,ArrowLeft } from 'lucide-react'
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 const LoginPage = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -31,7 +34,7 @@ const LoginPage = () => {
   
 
   try {
-    const res = await fetch("import.meta.env.VITE_API_URL/admin/login", {
+    const res = await fetch(`${BASE_URL}/admin/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
