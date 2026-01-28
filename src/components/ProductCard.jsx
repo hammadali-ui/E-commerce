@@ -4,6 +4,8 @@ import { addToCart, getCart } from "../utils/cart";
 import { useCart } from "../context/CartContext";
 import { toast } from "sonner";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export default function ProductCard({ product }) {
   //  const { setCart } = useCart(); // ✅ use context
   const { cart, setCart, increaseQty } = useCart();
@@ -23,7 +25,7 @@ export default function ProductCard({ product }) {
     to={`/product/${product.id}`}
     className="block relative bg-slate-100/60"
   >
-    <img
+    {/* <img
       src={
         product.image
           ? product.image.startsWith("http")
@@ -33,7 +35,20 @@ export default function ProductCard({ product }) {
       }
       alt={product.name}
       className="w-full h-56 object-contain p-6 transition-transform duration-500 group-hover:scale-110"
-    />
+    /> */}
+
+    <img
+  src={
+    product.image
+      ? product.image.startsWith("http")
+        ? product.image
+        : `${BASE_URL}/${product.image.replace(/^\/+/, "")}`
+      : "/placeholder.png"
+  }
+  alt={product.name}
+  className="w-full h-56 object-contain p-6 transition-transform duration-500 group-hover:scale-110"
+/>
+
 
     {/* glow */}
     <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition" />
